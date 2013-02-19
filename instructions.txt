@@ -1,0 +1,168 @@
+--------------------------------------
+    ___                   ________
+   / _ )___ __________ __/ ___/ (_)__
+  / _  / -_) __/ __/ // / /__/ / / _ \
+ /____/\__/_/ /_/  \_, /\___/_/_/ .__/
+                  /___/        /_/
+
+       BerryClip - 6 LED Board
+
+--------------------------------------
+
+The BerryClip is a simple, cheap and easy to use add-on board for the Raspberry Pi. It plugs 
+directly onto the Pi's GPIO header and provides 6 coloured LEDs, 1 Buzzer and 1 Switch. It
+can be controlled using any programming language that can manipulate the GPIO pins.
+
+Assembly Instructions
+=============================
+
+The kit includes the following parts :
+
+- 1 PCB
+- 1 26-way header
+- 2 Red LEDs
+- 2 Orange LEDs
+- 2 Yellow LEDs
+- 1 Buzzer
+- 1 Switch
+- 6 330 ohm resistors
+- 1 1K ohm resistor
+- 1 10K ohm resistor
+
+The PCB is labelled to identify where each component should be placed.
+
+P1     : 26-way header
+Buzz1  : 5v buzzer
+S1     : Micro-switch
+R1-R6  : 330 ohm (Orange-Orange-Brown)
+R7     : 1K ohm (Brown-Black-Red)
+R8     : 10K ohm (Brown-Black-Orange)
+LED1,2 : Red LEDs (3 marks)
+LED3,4 : Orange LEDs (2 marks)
+LED5,6 : Yellow LEDs (no marks)
+
+Take care to ensure the 1K and 10K resistors are placed in the correct positions. Obviously you can arrange the LEDs in any order you prefer.
+
+If you have never soldered before or you need a quick refresher then I can recommend the "Soldering Is Easy" comic :
+http://mightyohm.com/files/soldercomic/FullSolderComic_EN.pdf
+
+or this SparkFun page :
+http://www.sparkfun.com/tutorials/106
+
+Recommended Soldering Sequence :
+ - Solder 8 resistors
+ - Solder 6 LEDs
+ - Solder 1 switch
+ - Solder 1 buzzer
+ - Solder 1 26-way header
+
+Once the components are soldered :
+ - Visually check your solder joints and ensure there are no stray blobs or splashes of solder that might short-circuit any pins.
+ - Remove the label on the buzzer.
+ - Stick rubber bumper to underside of board so it will rest on large silver capacitor (C6) on the Raspberry Pi.
+
+Plug the board onto your Raspberry Pi. Stand back and admire your work.
+
+Raspberry Pi Setup
+=============================
+
+Prepare Raspbian image using official download from raspberrypi.org
+
+Boot Pi and login with default username and password ('pi' and 'raspberry')
+
+You will now be located in the 'pi' user home directory ('/home/pi/').
+
+Type the following commands where [ENTER] means press the Enter key :
+
+  mkdir berryclip [ENTER]
+  cd berryclip [ENTER]
+  wget http://www.raspberrypi-spy.co.uk/berryclip/6_led/install.sh [ENTER]
+  sh install.sh [ENTER]
+
+The above lines perform the following functions :
+  - Make a new directory called 'berryclip'
+  - Move into that directory
+  - Grab a script from the website
+  - Run the script
+
+The script will download an instruction file and a set of example Python scripts.
+
+Type :
+
+  ls [ENTER]
+
+to list the downloaded files.
+
+
+Run Some Example Scripts
+=============================
+
+berryclip_01.py - Test LEDs only
+berryclip_02.py - Test Buzzer only
+berryclip_03.py - Test Switch only
+berryclip_04.py - Test LEDs and Switch
+berryclip_05.py - Test LEDs, Buzzer and Switch
+berryclip_06.py - LED sequence
+berryclip_07.py - Dice Simulator
+berryclip_08.py - Reaction time game
+berryclip_09.py - Random LEDs
+
+To run a script you can use the following command :
+
+  sudo python berryclip_01.py [ENTER]
+
+To quit a running Python script use [CTRL-C].
+
+To view a text file or Python script you can use the command :
+
+  cat berryclip_01.py
+
+
+Other Useful Linux Commands
+=============================
+
+To list the files in the current directory use :
+
+  ls [ENTER]
+
+To list the files in the current directory in columns use :
+
+  ls -l [ENTER]
+
+To edit a script use :
+
+  nano berryclip_01.py [ENTER]
+
+to save changes and quit use [CTRL-X], then [Y] then [ENTER]
+
+To copy a script to a new filename use :
+
+  cp berryclip_01.py my_first_script.py
+
+To reboot the Pi :
+
+  sudo reboot [ENTER]
+
+To shutdown the Pi :
+
+  sudo halt [ENTER]
+
+and wait for the lights on the Pi to stop changing (usually about 20 seconds) before removing the power cable.
+
+If you are using Putty on another computer to access your Pi over a network without a monitor attached you can cut-n-paste these commands. Select the command, copy and use a right-mouse click in Putty to insert the command onto the command line.
+
+Hardware Reference
+=============================
+
+LED 1  - Pin 7  - GPIO4
+LED 2  - Pin 11 - GPIO17
+LED 3  - Pin 15 - GPIO22
+LED 4  - Pin 19 - GPIO10
+LED 5  - Pin 21 - GPIO9
+LED 6  - Pin 23 - GPIO11
+Buzzer - Pin 24 - GPIO8
+Switch - Pin 26 - GPIO7
+
+--------------------------------------
+Copyright 2012 Matt Hawkins
+--------------------------------------
