@@ -4,7 +4,7 @@ berryclip
 Repository for experiments with Matt Hawkins' BerryClip
 http://www.raspberrypi-spy.co.uk/berryclip-6-led-add-on-board/berryclip-6-led-add-on-board-instructions/
 
-To install, first of all install github tools
+To install, first of all install github tools<br>
 	sudo apt-get install git
 
 Then enter the following
