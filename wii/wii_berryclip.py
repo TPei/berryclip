@@ -61,7 +61,7 @@ except RuntimeError:
 
 print 'Wii Remote connected...\n'
 
-wii.rpt_mode = cwiid.RPT_BTN
+wii.rpt_mode = cwiid.RPT_BTN | cwiid.RPT_ACC
 wii.rumble = 1
 time.sleep(0.5)
 wii.rumble = 0
@@ -132,5 +132,9 @@ while True:
   if (buttons & cwiid.BTN_PLUS):
     print 'Plus Button pressed'
     time.sleep(button_delay)
+
+  print wii.state['acc']
+  if ((wii.state['acc'][0] < 120) and (wii.state['acc'][1] < 120) and (wii.state['acc'][2] < 120)):
+    flashPin(BUZZER)
 
 GPIO.cleanup()
